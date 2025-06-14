@@ -1,0 +1,26 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h2>Liste des Applications</h2>
+<a href="{% url 'ajouter_application' %}" class="btn-ajouter">➕ Ajouter</a>
+<ul>
+    {% for item in applications %}
+    <li>
+        <span style="display: flex; align-items: center; gap: 15px;">
+            {% if item.logo %}
+                <img src="{{ item.logo.url }}" alt="Logo"
+                     style="height: 60px; width: 60px; border-radius: 6px;">
+            {% endif %}
+            <span style="font-weight: bold;">{{ item.nom }}</span>
+        </span>
+        <span>
+            <a href="{% url 'modifier_application' item.id %}" class="btn-action">✏️ Modifier</a> |
+            <a href="{% url 'supprimer_application' item.id %}" class="btn-action">🗑️ Supprimer</a>
+        </span>
+    </li>
+    
+    {% empty %}
+        <li>Aucune application trouvée.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

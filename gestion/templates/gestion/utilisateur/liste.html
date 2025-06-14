@@ -1,0 +1,19 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h2>Liste des Utilisateurs</h2>
+<a href="{% url 'ajouter_utilisateur' %}" class="btn-ajouter">➕ Ajouter</a>
+<ul>
+    {% for item in utilisateurs %}
+    <li>
+        <span style="display: flex; align-items: center; gap: 10px;">
+            <strong>{{ item.prenom }} {{ item.nom }}</strong> — {{ item.email }}
+        </span>
+        <span>
+            <a href="{% url 'modifier_utilisateur' item.id %}" class="btn-action">✏️ Modifier</a> |
+            <a href="{% url 'supprimer_utilisateur' item.id %}" class="btn-action">🗑️ Supprimer</a>
+        </span>
+    </li>
+    {% empty %}<li>Aucun utilisateur trouvé.</li>{% endfor %}
+</ul>
+{% endblock %}

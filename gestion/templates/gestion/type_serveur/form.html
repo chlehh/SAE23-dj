@@ -1,0 +1,10 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h2>Formulaire Type Serveur</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="color:rgb(0, 75, 180)">Enregistrer</button>
+</form>
+{% endblock %}

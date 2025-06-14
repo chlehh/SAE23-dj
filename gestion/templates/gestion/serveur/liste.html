@@ -1,0 +1,19 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h2>Liste des Serveurs</h2>
+<a href="{% url 'ajouter_serveur' %}" class="btn-ajouter">➕ Ajouter</a>
+<ul>
+    {% for item in serveurs %}
+    <li>
+        <span style="display: flex; align-items: center; gap: 10px;">
+            <strong>{{ item.nom_serveur }}</strong> — {{ item.type_serveur.type }} — {{ item.capacite_memoire }} Mo RAM
+        </span>
+        <span>
+            <a href="{% url 'modifier_serveur' item.id %}" class="btn-action">✏️ Modifier</a> |
+            <a href="{% url 'supprimer_serveur' item.id %}" class="btn-action">🗑️ Supprimer</a>
+        </span>
+    </li>
+    {% empty %}<li>Aucun serveur trouvé.</li>{% endfor %}
+</ul>
+{% endblock %}

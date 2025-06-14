@@ -1,0 +1,143 @@
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url("/static/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+/* ===== HEADER ===== */
+.main-header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== NAVIGATION ===== */
+/* ===== NAVIGATION ===== */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.08); /* plus lumineux que noir */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.8rem 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px); /* flou léger pour contraste */
+    border-radius: 0 0 10px 10px;
+}
+
+.navbar a {
+    background-color: rgba(0, 0, 0, 0.6); /* ✅ fond noir semi-opaque */
+    color: #ffffff;                      /* ✅ texte blanc pur */
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* légère ombre */
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* effet clair au hover */
+    color: #ffffff;
+}
+
+/* ===== MAIN ===== */
+main {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== TITRES ===== */
+h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff44;
+    padding-bottom: 0.5rem;
+}
+li {
+    margin-bottom: 1.2rem; /* 🔁 avant : 0.5rem ou 0.6rem */
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid #ffffff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur(2px);
+}
+
+/* ===== BOUTONS ===== */
+button, .btn-ajouter, .btn-action {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 0.5rem 1.2rem;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover, .btn-ajouter:hover, .btn-action:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ===== FORMULAIRE ===== */
+form {
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+form input::placeholder {
+    color: #cccccc;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

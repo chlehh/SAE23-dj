@@ -1,0 +1,19 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h2>Liste des Types de Serveurs</h2>
+<a href="{% url 'ajouter_type_serveur' %}" class="btn-ajouter">➕ Ajouter</a>
+<ul>
+    {% for item in types %}
+    <li>
+        <span style="display: flex; align-items: center; gap: 10px;">
+            <strong>{{ item.type }}</strong> — {{ item.description }}
+        </span>
+        <span>
+            <a href="{% url 'modifier_type_serveur' item.id %}" class="btn-action">✏️ Modifier</a> |
+            <a href="{% url 'supprimer_type_serveur' item.id %}" class="btn-action">🗑️ Supprimer</a>
+        </span>
+    </li>
+    {% empty %}<li>Aucun type trouvé.</li>{% endfor %}
+</ul>
+{% endblock %}

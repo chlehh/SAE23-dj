@@ -1,0 +1,19 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h2>Liste des Services</h2>
+<a href="{% url 'ajouter_service' %}" class="btn-ajouter">➕ Ajouter</a>
+<ul>
+    {% for item in services %}
+    <li>
+        <span style="display: flex; align-items: center; gap: 10px;">
+            <strong>{{ item.nom.service }}</strong> — {{ item.serveur.nom_serveur }} — {{ item.memoire_vive_necessaire }} Mo RAM
+        </span>
+        <span>
+            <a href="{% url 'modifier_service' item.id %}" class="btn-action">✏️ Modifier</a> |
+            <a href="{% url 'supprimer_service' item.id %}" class="btn-action">🗑️ Supprimer</a>
+        </span>
+    </li>
+    {% empty %}<li>Aucun service trouvé.</li>{% endfor %}
+</ul>
+{% endblock %}

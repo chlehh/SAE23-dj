@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Serveurs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>🌐 Gestion des Serveurs</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="{% url 'home' %}">🏠 Accueil</a>
+        <a href="{% url 'liste_type_serveur' %}">Types de serveurs</a>
+        <a href="{% url 'liste_serveur' %}">Serveurs</a>
+        <a href="{% url 'liste_utilisateur' %}">Utilisateurs</a>
+        <a href="{% url 'liste_service' %}">Services</a>
+        <a href="{% url 'liste_application' %}">Applications</a>
+        <a href="{% url 'liste_usage' %}">Usages</a>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
