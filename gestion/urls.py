@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
+from .views import importer_application
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('import/', importer_application, name='import_application'),
 
     # TypeServeur
     path('types/', views.liste_type_serveur, name='liste_type_serveur'),

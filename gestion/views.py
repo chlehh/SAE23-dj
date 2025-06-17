@@ -5,7 +5,42 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import *
 
+import json
 
+def importer_application(request):
+    message = ""
+    if request.method == 'POST' and request.FILES.get('json_file'):
+        try:
+            # Lecture du fichier JSON
+            fichier = request.FILES['json_file']
+            data = json.load(fichier)
+
+            # Création de l'application
+            app_data = data['application']
+            utilisateur = Utilisateur.objects.get(id=app_data['utilisateur_id'])
+            application = Application.objects.create(
+                nom=app_data['nom'],
+                logo=app_data['logo'],
+                utilisateur=utilisateur
+            )
+
+            # Création des services
+            for service_data in data['services']:
+                serveur = Serveur.objects.get(id=service_data['serveur_id'])
+                Service.objects.create(
+                    nom=service_data['nom'],
+                    date_lancement=service_data['date_lancement'],
+                    espace_memoire_utilise=service_data['espace_memoire_utilise'],
+                    memoire_vive_necessaire=service_data['memoire_vive_necessaire'],
+                    serveur=serveur
+                )
+
+            message = "Importation réussie."
+
+        except Exception as e:
+            message = f"Erreur : {e}"
+
+    return render(request, 'gestion/import_application.html', {'message': message})
 
 
 
